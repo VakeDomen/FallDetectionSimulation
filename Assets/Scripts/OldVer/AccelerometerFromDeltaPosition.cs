@@ -103,17 +103,7 @@ public class AccelerometerFromDeltaPosition : MonoBehaviour {
         Vector3 sumgforce = (listSource[pos + 1].gForce + listSource[pos].gForce).normalized;
         Vector3 accelerometerValue = (dpos / (dt )) + (sumgforce * offset);
         AccelerometerStuffStruct newStuff = new AccelerometerStuffStruct(Time.time, dt, accelerometerValue, listSource[pos + 1].values, listSource[pos].values, sumgforce, listSource[pos].movementType);
-        //AccelerometerStuffStruct newStuff = new AccelerometerStuffStruct(pos, dt, accelerometerValue, dpos);
-        //Debug.Log("dt: " + dt + " accelerometerValue: " + accelerometerValue+ " dpos: " + dpos);
         listTarget.Add(newStuff);
 
-        //File.AppendAllText(fullpath, "count,delta,x,y,z");
-        /*
-        for (int i = 0; i < listTarget.positionList.Count; i++) {
-            string fullstr = listTarget.positionList[i].count.ToString() + ',' +
-                             listTarget.positionList[i].deltaTime.ToString("F6") + ',' +
-                             listTarget.positionList[i].values.ToString("F6"); 
-            File.AppendAllText(fullpath, fullstr);    
-        }*/
     }
 }

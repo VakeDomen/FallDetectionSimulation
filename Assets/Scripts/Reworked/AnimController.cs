@@ -100,7 +100,7 @@ public class AnimController : MonoBehaviour {
 		if (!enabled) return;
 		if (isOnRagdoll) return;
 		isOnRagdoll = true;
-		mainRBody.useGravity = false;
+		//mainRBody.useGravity = false;
 		anim.enabled = false;
 		mainRBody.velocity = Vector3.zero;
 

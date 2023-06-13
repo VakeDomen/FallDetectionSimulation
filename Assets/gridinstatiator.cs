@@ -9,6 +9,11 @@ public class gridinstatiator : MonoBehaviour
     public int cols = 10;
     public float tileSize = 0.3f;  // Size of the tile in meters (30cm)
 
+    // Define tiles as a list of GameObjects
+    public List<scr> tiles = new List<scr>(); 
+
+
+
     void Start()
     {
         GenerateGrid();
@@ -16,6 +21,7 @@ public class gridinstatiator : MonoBehaviour
 
     void GenerateGrid()
     {
+        int id = 1;
         for (int x = 0; x < cols; x++)
         {
             for (int z = 0; z < rows; z++)
@@ -27,9 +33,14 @@ public class gridinstatiator : MonoBehaviour
                 scr tileScript = tile.GetComponent<scr>();
                 if (tileScript != null)
                 {
-                    tileScript.SetIndices(x, z);
+                    tileScript.SetIndices(x, z, id);
+                    id++;
                 }
+
+                tiles.Add(tileScript);
             }
+            Debug.Log(tiles);
+            Debug.Log(tiles.Count);
         }
     }
 
